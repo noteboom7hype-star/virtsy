@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Typing Effect</title>
+  <title>Typing Effect with Glow</title>
   <style>
     body {
-      background-color: #fff;
+      background-color: #000; /* dark background for glow contrast */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -14,49 +14,7 @@
     .typing {
       font-size: 64px;
       font-weight: bold;
-      color: blue;
       font-family: monospace;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 4px solid blue;
-      animation: blinkCursor 0.8s steps(1) infinite;
-    }
-    @keyframes blinkCursor {
-      50% { border-color: transparent; }
-    }
-  </style>
-</head>
-<body>
-  <div class="typing" id="typing"></div>
-
-  <script>
-    const text = "This is Virtsy";
-    const typingElement = document.getElementById("typing");
-    let index = 0;
-    let typingForward = true;
-
-    function typeEffect() {
-      if (typingForward) {
-        if (index < text.length) {
-          typingElement.textContent += text.charAt(index);
-          index++;
-        } else {
-          typingForward = false;
-          setTimeout(typeEffect, 5000); // wait 5 seconds before backspacing
-          return;
-        }
-      } else {
-        if (index > 0) {
-          typingElement.textContent = text.substring(0, index - 1);
-          index--;
-        } else {
-          typingForward = true;
-        }
-      }
-      setTimeout(typeEffect, typingForward ? 150 : 100);
-    }
-
-    typeEffect();
-  </script>
-</body>
-</html>
+      border-right: 4px solid
