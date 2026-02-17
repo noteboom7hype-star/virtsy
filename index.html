@@ -2,61 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Typing Effect with Glow</title>
+  <title>Virtsy Landing</title>
   <style>
     body {
-      background-color: #fff; /* white background */
+      background-color: #fff; /* clean white background */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     .typing {
       font-size: 64px;
-      font-weight: bold;
+      font-weight: 700;
       font-family: monospace;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 4px solid #00f;
+      border-right: 3px solid #007bff;
       animation: blinkCursor 0.8s steps(1) infinite;
 
       /* Gradient text */
-      background: linear-gradient(90deg, #00f, #00cfff, #00f);
-      background-size: 200% auto;
-      background-position: left center;
+      background: linear-gradient(90deg, #007bff, #00cfff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      /* Glow effect */
-      text-shadow: 0 0 10px #00f, 0 0 20px #00cfff, 0 0 40px #00f;
+      /* Softer glow */
+      text-shadow: 0 0 6px rgba(0, 123, 255, 0.6), 
+                   0 0 12px rgba(0, 207, 255, 0.4);
     }
+
     @keyframes blinkCursor {
       50% { border-color: transparent; }
     }
 
     .subtitle {
-      font-size: 24px;
-      font-family: sans-serif;
-      color: #000; /* black text */
-      margin-top: 20px;
+      font-size: 22px;
+      color: #333; /* modern dark gray instead of pure black */
+      margin-top: 15px;
+      font-weight: 400;
     }
 
     .button {
       margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 20px;
-      font-weight: bold;
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: 600;
       color: #fff;
-      background: #007bff;
+      background: linear-gradient(90deg, #007bff, #00cfff);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .button:hover {
-      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
     }
   </style>
 </head>
