@@ -5,11 +5,13 @@
   <title>Typing Effect with Glow</title>
   <style>
     body {
-      background-color: #000; /* dark background for glow contrast */
+      background-color: #fff; /* white background */
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .typing {
       font-size: 64px;
@@ -33,10 +35,35 @@
     @keyframes blinkCursor {
       50% { border-color: transparent; }
     }
+
+    .subtitle {
+      font-size: 24px;
+      font-family: sans-serif;
+      color: #000; /* black text */
+      margin-top: 20px;
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      background: #007bff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 <body>
   <div class="typing" id="typing"></div>
+  <div class="subtitle">Your free, and fast VPS.</div>
+  <button class="button">Get yours</button>
 
   <script>
     const text = "This is Virtsy";
