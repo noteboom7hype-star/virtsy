@@ -17,4 +17,55 @@
       font-family: monospace;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 4px solid
+      border-right: 4px solid #00f;
+      animation: blinkCursor 0.8s steps(1) infinite;
+
+      /* Gradient text */
+      background: linear-gradient(90deg, #00f, #00cfff, #00f);
+      background-size: 200% auto;
+      background-position: left center;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      /* Glow effect */
+      text-shadow: 0 0 10px #00f, 0 0 20px #00cfff, 0 0 40px #00f;
+    }
+    @keyframes blinkCursor {
+      50% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="typing" id="typing"></div>
+
+  <script>
+    const text = "This is Virtsy";
+    const typingElement = document.getElementById("typing");
+    let index = 0;
+    let typingForward = true;
+
+    function typeEffect() {
+      if (typingForward) {
+        if (index < text.length) {
+          typingElement.textContent += text.charAt(index);
+          index++;
+        } else {
+          typingForward = false;
+          setTimeout(typeEffect, 5000); // wait 5 seconds before backspacing
+          return;
+        }
+      } else {
+        if (index > 0) {
+          typingElement.textContent = text.substring(0, index - 1);
+          index--;
+        } else {
+          typingForward = true;
+        }
+      }
+      setTimeout(typeEffect, typingForward ? 150 : 100);
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
